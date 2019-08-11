@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>attendance senate</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/senate.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Css bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/senate.css">
+</head>
+
+<body>
+
+    <!-- nav icon-->
+    <nav class="container">
+        <nav class="row">
+            <div class=" container navbar-header">
+
+                <!-- image logo-->
+
+                <img src="image/images.png" class="img-circle" alt="Cinque Terre" width="150" height="150">
+
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <h3><a href="mailto:info@tgif.net"><span class="glyphicon glyphicon-envelope"></span> info@tgif.net</a></h3>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+    </nav>
+    <!-- nav home -->
+    <nav class=" container navbar navbar-inverse ">
+        <div class="row">
+            <div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="home.html">Home</a></li>
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Congress 113 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="senate-data.html">Senate</a></li>
+                            <li><a href="house-data.html">House</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Attendance <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="attendanceHouse.html">House</a></li>
+                            <li><a href="attendanceSenate.html">Senate</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Party Loyalty <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="loyaltyHouse.html">House</a></li>
+                            <li><a href="senatePartyLoyalty.html">Senate</a></li>
+
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+
+    <!--Table container-->
+    <div class="container" id="app">
+    
+        <div class="row">
+            <div class=" container col-sm-6 ">
+                <h2>Attendance</h2>
+                <p>The Constitution specifies that a majority of members constitutes a quorum to do business in each house. Representatives and senators rarely force the presence of a quorum by demanding quorum calls; thus, in most cases, debates continue even if a majority is not present.</p>
+
+                <p>The Senate uses roll-call votes; a clerk calls out the names of all the senators, each senator stating "aye" or "no" when his or her name is announced. The House reserves roll-call votes for
+                    <th></th>e most formal matters, as a roll-call of all 435 representatives takes quite some time; normally, members vote by electronic device. In the case of a tie, the motion in question fails. In the Senate, the Vice President may (if present) cast the tiebreaking vote.</p>
+            </div>
+
+            <div class=" container col-sm-6 ">
+                <div class=" row">
+                    <h2>Senate at a glance</h2>
+                    <table class="table table-condensed table-hover ">
+                      <thead>
+                        <tr>
+                            <th>Party</th>
+                            <th>Number of Reps</th>
+                            <th>% Voted with Prty</th>
+                        </tr>
+                      </thead>
+                      <tbody id="tableVotesTotal">
+                       
+                        <tr>
+                          <td>Republican</td>
+                          <td>{{atendenceStadistics.numR}}</td>
+                          <td>{{atendenceStadistics.averageRepublic}} </td>
+                        </tr>
+                        <tr>
+                            <td>Democrat</td>
+                            <td>{{atendenceStadistics.numD}} </td>
+                            <td>{{atendenceStadistics.averageDemocrat}} </td>
+                        </tr>
+                        <tr>
+                          <td>Independient</td>
+                          <td>{{atendenceStadistics.numI}}</td>
+                          <td>{{atendenceStadistics.averageIndepent}} </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                </div>
+            </div>
+      
+    </div>
+
+    <div class="container">
+    <div class=" row">
+      <div class="container col-sm-6">
+        <h2>Least Engaged (Bottom 10% Attendance)</h2>
+
+        <table class="table table-condensed table-hover ">
+          <thead>
+              <tr>
+                  <th>Name</th>
+                  <th>Number of Missed Votes</th>
+                  <th>% Missed</th>
+              </tr>
+          </thead>
+          <tbody id="attendanceButtom">
+            <tr v-for ="coso in atendenceStadistics.atendanceBottom">
+                <td> {{coso.last_name +"," + coso.first_name}} {{coso.middle_name}} </td>	
+                <td> {{coso.missed_votes}} </td>
+                <td> {{coso.missed_votes_pct}} % </td>-->
+            </tr>						
+
+          </tbody>
+        </table>
+      </div>
+
+      <div class="container col-sm-6">
+          <div class="row">
+              <h2>Most Engaged (Top 10% Attendance)</h2>
+              <table  class="table table-condensed table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Number of Missed Votes</th>
+                        <th>% Missed</th>
+                    </tr>
+                </thead>
+                <tbody id="attendanceTop">
+                <tr v-for ="coso in atendenceStadistics.atendanceTop">
+                    <td> {{coso.last_name +"," + coso.first_name}} {{coso.middle_name}} </td>
+                    <td> {{coso.missed_votes}} </td>
+                    <td> {{coso.missed_votes_pct}} % </td>-->
+                </tr>	
+                </tbody>
+              </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- <script src="js/pro-congress-113-senate.js"></script> -->
+    <!-- scripts jquery -->
+    <!--<script src="jquery/jquery3.3.1.js"> </script>-->
+    <!-- scripts bootstrap -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/senateVue.js"></script>
+
+    <!--<script src="js/pro-congress-113-senate.js"></script>-->
+        <!-- scripts bootstrap -->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+
+    <!-- footer  -->
+
+    <footer class=" container navbar navbar-inverse">
+        <div class="footer-copyright text-center">© 2016 TGIF | All Rights Reserved
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>

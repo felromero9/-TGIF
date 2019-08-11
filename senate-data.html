@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>senate</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/senate.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Css bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/senate.css">
+</head>
+
+<body>
+    <!-- nav icon-->
+    <nav class="container">
+      <nav class="row">
+        <div class=" container navbar-header">
+
+          <!-- image logo-->
+          <img src="image/images.png" class="img-circle" alt="Cinque Terre" width="150" height="150">
+
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+                <h3><a href="mailto:info@tgif.net"><span class="glyphicon glyphicon-envelope"></span> info@tgif.net</a></h3>
+            </li>
+          </ul>
+
+        </div>
+      </nav>
+    </nav>
+    <!-- nav home -->
+    <nav class=" container navbar navbar-inverse ">
+      <div class="row">
+        <div>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="home.html">Home</a></li>
+             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Congress 113 <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="senate-data.html">Senate</a></li>
+                  <li><a href="house-data.html">House</a></li>
+                </ul>
+              </li>
+              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Attendance <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="attendanceHouse.html">House</a></li>
+                  <li><a href="attendanceSenate.html">Senate</a></li>
+                </ul>
+              </li>
+              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Party Loyalty <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="loyaltyHouse.html">House</a></li>
+                  <li><a href="senatePartyLoyalty.html">Senate</a></li>
+                </ul>
+              </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Text ---------------------------------------------------------------------------------------------- -->
+    
+  
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <h2>Senators</h2>
+                <p class="texte-left"> 
+                  First convened in 1789, the composition and powers of the Senate are 
+                  established in Article One of the U.S. Constitution. Each state is represented 
+                  by two senators, regardless of population, who serve staggered six-year terms. 
+                  The Senate has several exclusive powers not granted to the House, including consenting
+                  to treaties as a precondition to their ratification and consenting to or confirming 
+                  appointments of Cabinet secretaries, federal judges, other federal executive officials, 
+                  military officers, regulatory officials, ambassadors, and other federal uniformed officers,
+                  as well as trial of federal officials impeached by the House.
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+
+    
+  <!-- test of Vue************************************************************************************* -->    
+  
+    <!-- start table -->
+    
+    <div class="container" id="app">
+        <div class=" row">
+            <h3>Select party :</h3>
+    
+            <div class="partyCh col-sm-8 ">
+              
+              <!-- Democrat-->
+              
+              <input type="checkbox" id="democrat" name="partyBox" value="democrat" >
+              <label for="democrat">Democrat</label>
+              
+    
+              <!--  Republican-->
+              
+              <input type="checkbox" id="republican" name="partyBox" value="republican" >
+              <label for="republican">Republican</label>
+                
+    
+              <!-- Independent -->
+              
+              <input type="checkbox" id="independent" name="partyBox" value="independent" >
+              <label for="independent">Independent</label>
+            </div>
+          
+    
+            <!-- Filter -->
+            
+            <div class="col-sm-4">
+              <label for="optionState"> FILTER STATE:
+              <select name="filterState" id="filterState">
+                  <option v-for="state in states">{{state}} </option>
+              </select>
+            </div>
+    
+          </div>
+       <div class="row">
+        <table id="senate-data" class="table table-condensed table-hover col-sm-8 ">
+          <thead id="table-headers">
+              <tr>
+                  <th>FULL NAME</th>
+                  <th>PARTY</th>
+                  <th>STATE</th>
+                  <th>SENIORITY</th>
+                  <th>PERCENTAGE</th>
+              </tr>
+          </thead>
+
+          <tbody id="table-rows">
+              <tr v-for="senator in members">
+                <td><a v-bind:href="senator.url"> {{senator.last_name}} {{senator.middle_name}} {{senator.first_name}} </a></td>
+                <td> {{senator.party}}</td>
+                <td> {{senator.state}} </a></td>
+                <td> {{senator.seniority}} </a></td> 
+                <td>{{senator.votes_with_party_pct}} &#37;</a></td> 
+              </tr>
+          </tbody>
+          
+ 
+        </table>
+      </div>
+    </div> 
+    
+      <!--  scripts-->
+      <!-- vue  -->
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <!-- <script src="js/pro-congress-113-senate.js"></script> -->
+      <!-- scripts jquery -->
+      <!--<script src="jquery/jquery3.3.1.js"> </script>-->
+      <!-- scripts bootstrap -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <script src="js/main.js"></script>
+      <!--<script src="js/pruebaVue.js"></script>-->
+
+  </body>
+
+  <!-- footer  -->
+  <footer class=" container navbar navbar-inverse">
+    <div class="footer-copyright text-center py-3">© 2016 TGIF | All Rights Reserved
+    </div>
+  </footer>
+
+</html>

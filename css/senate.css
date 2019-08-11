@@ -1,0 +1,54 @@
+
+
+body{
+    background-color: aliceblue;
+}
+/* --- */
+.text-center{
+    color:aliceblue;
+}
+
+.navbar-inverse{
+    background-color: darkslategrey
+}
+
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
+    color:ghostwhite;
+    background-color:cadetblue;    
+}
+
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover 
+{
+    background-color: cornflowerblue;
+}
+
+
+.navbar-nav>li>.dropdown-menu {
+    background-color: cadetblue;
+}
+
+.container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header 
+{
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.img {
+    vertical-align: middle;
+    margin-left: -27px;
+    margin-top: 1px;
+    margin-bottom:;
+}
+
+.btn-info {
+    color: #fff;
+    background-color: cadetblue;
+    border-color: #46b8da;
+}
+
+
+.img-thumbnail {
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
